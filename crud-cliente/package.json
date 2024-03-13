@@ -1,0 +1,58 @@
+{
+    "name": "sample-app-angularjs",
+    "description": "Sample app for UI-Router for AngularJS",
+    "version": "1.0.2",
+    "scripts": {
+      "clean": "shx rm -rf _bundles transpiled",
+      "start": "http-server",
+      "build": "webpack",
+      "test": "npm run build && cypress-runner run --path .",
+      "test:open": "npm run build && cypress-runner open --path .",
+      "e2e": "npm run test",
+      "gh-pages": "git checkout gh-pages && git rebase master && yarn && webpack && git add -f _bundles && git commit -m 'publish gh-pages' && git push origin gh-pages:gh-pages --force && git checkout master"
+    },
+    "contributors": [
+      {
+        "name": "Chris Thielen",
+        "web": "https://github.com/christopherthielen"
+      }
+    ],
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/ui-router/sample-app-angularjs.git"
+    },
+    "checkPeerDependencies": {
+      "ignore": [
+        "ajv"
+      ]
+    },
+    "dependencies": {
+      "@uirouter/angularjs": "^1.0.29",
+      "@uirouter/dsr": "^1.2.0",
+      "@uirouter/sticky-states": "^1.5.1",
+      "@uirouter/visualizer": "^7.2.1",
+      "angular": "^1.8.2",
+      "oclazyload": "^1.1.0",
+      "@angular/animations": "^4.2.4",
+      "@angular/common": "^4.2.4",
+      "@angular/compiler": "^4.2.4",
+      "@angular/core": "^4.2.4",
+      "@angular/forms": "^4.2.4",
+      "@angular/http": "^4.2.4",
+      "@angular/platform-browser": "^4.2.4",
+      "@angular/platform-browser-dynamic": "^4.2.4",
+      "@angular/router": "^4.2.4"
+  },
+    "devDependencies": {
+      "@babel/core": "^7.21.4",
+      "@babel/preset-env": "^7.14.9",
+      "@uirouter/cypress-runner": "^3.0.0",
+      "babel-loader": "^9.1.2",
+      "shx": "^0.3.4",
+      "source-map-loader": "^4.0.1",
+      "webpack": "^5.77.0",
+      "webpack-cli": "^5.0.1",
+      "webpack-dev-server": "^4.13.2"
+    }
+  }
